@@ -1,5 +1,9 @@
 <h2>Question: <%= @question.name %></h2>
 
 <div id="title">
-	<%= @question.description %>
+	<%= simple_format(@question.description) %>
 </div>
+<br />
+<%= link_to "Edit", edit_question_path %><br />
+<%= link_to "Delete", question_path(@question), :method => :delete, :confirm => "Are you sure?" %><br />
+<%= link_to "Back to Favorite Questions", root_path %>
