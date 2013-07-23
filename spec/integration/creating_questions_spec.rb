@@ -14,8 +14,8 @@ feature 'Creating Questions' do
   
     question = Question.find_by_name("TextMate 2")
     page.current_url.should == question_url(question)
-    title = "TextMate 2 - Favorite Questions"
-    find("title").should have_content(title)
+    title = "Question: TextMate 2"
+    page.should have_content(title)
   end
   
   scenario "can not create a question without a name" do

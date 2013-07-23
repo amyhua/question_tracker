@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(params[:question])
     if @question.save
       flash[:notice] = "Question has been created."
-      render :action => :show
+      redirect_to @question
     else
       flash[:alert] = "Question has not been created."
       render :action => :new
@@ -19,6 +19,6 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    
+    @question = Question.find(params[:id])
   end
 end
